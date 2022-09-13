@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "765e5956-c7a2-41e8-8359-ecd39a5b2d6b",
+		"name": "Qlik SaaS - GitHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5259513"
+	},
+	"item": [
+		{
+			"name": "Audit",
+			"item": [
+				{
+					"name": "List Sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits/sources",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits",
+								"sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Event Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits/types",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit Full",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit by Event Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits?eventType=com.qlik.v1.app.opened",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits"
+							],
+							"query": [
+								{
+									"key": "eventType",
+									"value": "com.qlik.v1.app.opened"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit by Sources",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits?source=com.qlik/engine",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "com.qlik/engine"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit Time",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits?eventTime=2022-09-13T00:00:00.00Z/2022-09-14T00:00:00.00Z",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits"
+							],
+							"query": [
+								{
+									"key": "eventTime",
+									"value": "2022-09-13T00:00:00.00Z/2022-09-14T00:00:00.00Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Example - Audit Exported Apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/audits?eventType",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"audits"
+							],
+							"query": [
+								{
+									"key": "eventType",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
