@@ -7,6 +7,35 @@
 	},
 	"item": [
 		{
+			"name": "Apps",
+			"item": [
+				{
+					"name": "List All Apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/items?resourceType=app",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "resourceType",
+									"value": "app"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\nApps are central to the Qlik platform and is the resource you use when interacting with Qlik Sense and QlikView apps.\n\nFor full documentation, please refer to [https://qlik.dev/apis/rest/apps](https://qlik.dev/apis/rest/apps)\n\nEndFragment"
+		},
+		{
 			"name": "Audit",
 			"item": [
 				{
@@ -23,7 +52,8 @@
 								"audits",
 								"sources"
 							]
-						}
+						},
+						"description": "StartFragment\n\n[https://qlik.dev/apis/rest/audits##/entries/v1/audits/sources-get](https://qlik.dev/apis/rest/audits##/entries/v1/audits/sources-get)\n\nEndFragmentgStartFragment"
 					},
 					"response": []
 				},
@@ -41,7 +71,8 @@
 								"audits",
 								"types"
 							]
-						}
+						},
+						"description": "[https://qlik.dev/apis/rest/audits##/entries/v1/audits/types-get](https://qlik.dev/apis/rest/audits##/entries/v1/audits/types-get)"
 					},
 					"response": []
 				},
@@ -58,7 +89,8 @@
 							"path": [
 								"audits"
 							]
-						}
+						},
+						"description": "StartFragment\n\n## Finds and returns the persisted audit events for the given tenant.\n\nEndFragment\n\n  \n[https://qlik.dev/apis/rest/audits##/entries/v1/audits-get](https://qlik.dev/apis/rest/audits##/entries/v1/audits-get)"
 					},
 					"response": []
 				},
@@ -109,7 +141,7 @@
 					"response": []
 				},
 				{
-					"name": "Audit Time",
+					"name": "Example - Audit by Time",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -137,7 +169,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{TENANT}}/audits?eventType",
+							"raw": "{{TENANT}}/audits?eventType=com.qlik.app.exported",
 							"host": [
 								"{{TENANT}}"
 							],
@@ -147,8 +179,96 @@
 							"query": [
 								{
 									"key": "eventType",
-									"value": null
+									"value": "com.qlik.app.exported"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Retrieves items that the user has access to",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/items",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reloads",
+			"item": [
+				{
+					"name": "List all reloads",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/reloads",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"reloads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reload by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TENANT}}/reloads?=63210bed1303eb87a63579e7",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"reloads"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "63210bed1303eb87a63579e7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Starts a Reload by App ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"appId\": \"b92f4d6e-6874-4854-9c82-3d4b6a03f237\",\r\n  \"partial\": false\r\n}"
+						},
+						"url": {
+							"raw": "{{TENANT}}/reloads",
+							"host": [
+								"{{TENANT}}"
+							],
+							"path": [
+								"reloads"
 							]
 						}
 					},
